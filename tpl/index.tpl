@@ -18,7 +18,7 @@
 	    <label class="classic">
 	      <?php echo __('Enable External links plugin');?>&nbsp;
 	      <?php echo form::checkbox('active', 1, $active); ?>
-	      
+
 	    </label>
 	  </p>
 	</div>
@@ -63,16 +63,16 @@
 	<?php echo __('If you want more informations on that plugin or have new ideas to develope it, or want to submit a bug or need help (to install or configure it) or for anything else ...');?></p>
       <ul>
 	<li>
-	  <?php printf(__('Go to %sthe dedicated page%s in'), 
+	  <?php printf(__('Go to %sthe dedicated page%s in'),
 		'<a hreflang="fr" href="http://forum.dotclear.net/viewtopic.php?id=43711">',
 		'</a>');?>
 	  <a hreflang="fr" href="http://forum.dotclear.net/">forum de dotclear</a>
 	</li>
 	<li>
-	  <?php printf(__('Go to %sthe dedicated page%s in'), 
-		'<a hreflang="fr" href="http://www.nikrou.net/pages/externalLinks">',
+	  <?php printf(__('Go to %sthe dedicated page%s in'),
+		'<a hreflang="fr" href="https://www.nikrou.net/pages/externalLinks">',
 		'</a>');?>
-	  <a hreflang="fr" href="http://www.nikrou.net/">journal de nikrou</a>
+	  <a hreflang="fr" href="https://www.nikrou.net/">journal de nikrou</a>
 	</li>
       </ul>
       <p>
@@ -81,7 +81,7 @@
       </p>
       <p>
 	<?php echo __('Contributor:');?>
-	<a href="http://www.nikrou.net/contact">Nicolas Roudaire</a> (nikrou)
+	<a href="https://www.nikrou.net/contact">Nicolas Roudaire</a> (nikrou)
       </p>
     </div>
     <?php dcPage::helpBlock('externalLinks');?>
