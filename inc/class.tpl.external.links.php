@@ -19,10 +19,17 @@ class tplExternalLinks
 
         $url = html::stripHostURL($core->blog->getQmarkURL() . 'pf=externalLinks');
 
+        if ($core->blog->settings->externallinks->new_icon) {
+            $core->media = new dcMedia($core);
+            $icon_url = $core->media->getFile($core->blog->settings->externallinks->new_icon)->file_url;
+        } else {
+            $icon_url = $url . '/img/external.png';
+        }
+
         echo
       '<script type="text/javascript">' . "\n" .
       "//<![CDATA[\n" .
-      'var external_links_image = "' . $url . '/img/external.png";' .
+      'var external_links_image = "' . $icon_url . '";' .
       'var external_links_title = "' . __('Open this link in a new window') . '";';
         if ($core->blog->settings->externallinks->one_link) {
             echo 'var external_one_link = true;';
@@ -35,7 +42,6 @@ class tplExternalLinks
             echo 'var external_with_icon = false;';
         }
         echo
-      "\n//]]>\n" .
       "</script>\n";
 
         if ($core->blog->settings->externallinks->all_links) {

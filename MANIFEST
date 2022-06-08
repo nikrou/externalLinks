@@ -18,6 +18,7 @@ externalLinks/tpl/popup.tpl
 externalLinks/img/icon.png
 externalLinks/img/external.png
 externalLinks/COPYING
+externalLinks/.vscode/settings.json
 externalLinks/locales/en/resources.php
 externalLinks/locales/en/help.html
 externalLinks/locales/fr/resources.php

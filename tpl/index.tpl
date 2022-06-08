@@ -11,7 +11,7 @@
     <?php endif;?>
 
     <div class="multi-part" id="externallinks_settings" title="<?php echo __('Settings'); ?>">
-      <form action="<?php echo $p_url;?>" method="post">
+      <form action="<?php echo $p_url;?>" method="post" enctype="multipart/form-data">
 	<div class="fieldset">
 	  <h3><?php echo __('Plugin activation'); ?></h3>
 	  <p>
@@ -47,6 +47,22 @@
 	    <label class="classic">
 	      <?php echo __('Add icon for external links?');?>
 	      <?php echo form::checkbox('with_icon', 1, $with_icon);?>
+	    </label>
+	    (
+	    <?php if ($new_icon_file):?>
+	    <?php echo __('new icon');?> :
+	    <?php echo '<img src="'.$new_icon_file.'" alt="" style="margin: 0 3px; vertical-align: middle;"/>';?>
+	    <a href="<?php echo $restore_url;?>" title="<?php echo __('Restore default icon');?>"><img src="images/trash.png" alt="remove"/></a>
+	    <?php else:?>
+	    <?php echo __('default icon');?> :
+	    <?php echo '<img src="index.php?pf=externalLinks/img/external.png" alt="" style="margin: 0 3px; vertical-align: middle;"/>';?>
+	    <?php endif;?>
+	    )
+	  </p>
+	  <p>
+	    <?php echo form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE);?>
+	    <label class="classic" title="<?php echo __('New icon');?>"><?php echo __('Change icon :');?>
+	      <input type="file" name="new_icon"/>
 	    </label>
 	  </p>
 	</div>

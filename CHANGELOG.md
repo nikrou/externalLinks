@@ -1,3 +1,7 @@
+# external Links 4.0.0 - 2022-06-08
+
+- Allo to change default icon
+
 # external Links 3.4.0 - 2016-08-22
 
 - Add css class to link around external link icon.

@@ -22,6 +22,7 @@ $settings->externallinks->put('all_links', false, 'boolean', 'Open all links in 
 $settings->externallinks->put('checkbox_new_links', false, 'boolean', 'Default status for popup (external or not)', false);
 $settings->externallinks->put('one_link', false, 'boolean', 'Merge classic and external link?', false);
 $settings->externallinks->put('with_icon', true, 'boolean', 'Add icon for external link?', false);
+$settings->externallinks->put('new_icon', '', 'string', 'External links user icon', false);
 
 $core->setVersion('externalLinks', $version);
 return true;

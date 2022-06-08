@@ -17,7 +17,7 @@ $this->registerModule(
 	// Author
     "Bruno Hondelatte, Nicolas Roudaire",
 	// Version
-    '3.4.0',
+    '4.0.0',
 	// Permissions
     ['permissions' => 'admin', 'type' => 'plugin']
 );

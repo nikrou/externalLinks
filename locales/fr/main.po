@@ -54,6 +54,12 @@ msgstr "Regrouper les liens (lien classique et lien dans une nouvelle fenêtre)"
 msgid "Add icon for external links?"
 msgstr "Ajouter une icône pour les liens externes ? "
 
+msgid "Change icon :"
+msgstr "Changer l'icône : "
+
+msgid "new icon"
+msgstr "Nouvelle icône"
+
 msgid "Save configuration"
 msgstr "Sauver la configuration"
 
