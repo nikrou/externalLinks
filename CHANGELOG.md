@@ -1,3 +1,8 @@
+# external Links 5.0.0 - 2023-03-04
+
+- Remove js files to try to manage link from popup
+- Update code for dotclear 2.24
+
 # external Links 4.0.0 - 2022-06-08
 
 - Allo to change default icon

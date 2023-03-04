@@ -1,23 +1,25 @@
 <?php
 /*
- * This file is part of Phyxo package
+ *  -- BEGIN LICENSE BLOCK ----------------------------------
  *
- * Copyright(c) Nicolas Roudaire  https://www.nikrou.net/
- * Licensed under the GPL version 2.0 license.
+ *  This file is part of externalLinks, a plugin for DotClear2.
  *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
+ *  Licensed under the GPL version 2.0 license.
+ *  See COPYING file or
+ *  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ *  -- END LICENSE BLOCK ------------------------------------
  */
 
 $this->registerModule(
-	// Name
-    "externalLinks",
-	// Description
-    "Opens external links in a new window",
-	// Author
-    "Bruno Hondelatte, Nicolas Roudaire",
-	// Version
-    '4.0.0',
-	// Permissions
-    ['permissions' => 'admin', 'type' => 'plugin']
+    "externalLinks", // Name
+    "Opens external links in a new window",	// Description
+    "Bruno Hondelatte, Nicolas Roudaire", // Author
+    '5.0.0', // Version
+    [
+        'permissions' => dcCore::app()->auth->makePermissions([dcAuth::PERMISSION_ADMIN]),
+        'type' => 'plugin',
+        'dc_min' => '2.24',
+        'requires' => [['core', '2.24']],
+    ]
 );

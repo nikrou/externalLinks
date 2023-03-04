@@ -5,13 +5,13 @@
     <?php echo dcPage::jsPageTabs($default_tab); ?>
   </head>
   <body>
-    <h2><?php echo html::escapeHTML($core->blog->name); ?> &gt; <?php echo __('External links'); ?></h2>
+    <h2><?php echo html::escapeHTML(dcCore::app()->blog->name); ?> &gt; <?php echo __('External links'); ?></h2>
     <?php if (!empty($message)):?>
     <p class="message"><?php echo $message;?></p>
     <?php endif;?>
 
     <div class="multi-part" id="externallinks_settings" title="<?php echo __('Settings'); ?>">
-      <form action="<?php echo $p_url;?>" method="post" enctype="multipart/form-data">
+      <form action="<?php echo dcCore::app()->admin->getPageURL();?>" method="post" enctype="multipart/form-data">
 	<div class="fieldset">
 	  <h3><?php echo __('Plugin activation'); ?></h3>
 	  <p>
@@ -29,12 +29,6 @@
 	    <label class="classic">
 	      <?php echo __('Open all external links in a new window');?>
 	      <?php echo form::checkbox('all_links', 1, $all_links);?>
-	    </label>
-	  </p>
-	  <p id="new-link-option">
-	    <label class="classic">
-	      <?php echo __('Open new links in a new window (default popup option)');?>
-	      <?php echo form::checkbox('checkbox_new_links', 1, $checkbox_new_links);?>
 	    </label>
 	  </p>
 	  <p>
@@ -69,7 +63,7 @@
 	<?php endif;?>
 	<p>
 	  <?php echo form::hidden('p', 'externalLinks');?>
-	  <?php echo $core->formNonce();?>
+	  <?php echo dcCore::app()->formNonce();?>
 	  <input type="submit" name="saveconfig" value="<?php echo __('Save configuration'); ?>" />
 	</p>
       </form>

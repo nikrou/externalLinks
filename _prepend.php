@@ -1,16 +1,17 @@
 <?php
 /*
- * This file is part of Phyxo package
+ *  -- BEGIN LICENSE BLOCK ----------------------------------
  *
- * Copyright(c) Nicolas Roudaire  https://www.nikrou.net/
- * Licensed under the GPL version 2.0 license.
+ *  This file is part of externalLinks, a plugin for DotClear2.
  *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
+ *  Licensed under the GPL version 2.0 license.
+ *  See COPYING file or
+ *  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ *  -- END LICENSE BLOCK ------------------------------------
  */
 
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-$GLOBALS['__autoload']['tplExternalLinks'] = dirname(__FILE__) . '/inc/class.tpl.external.links.php';
+Clearbricks::lib()->autoload([
+    'ExternalLinksTemplate' => __DIR__ . '/inc/ExternalLinksTemplate.php',
+    'ExternalLinksBehaviors' => __DIR__ . '/inc/ExternalLinksBehaviors.php'
+]);

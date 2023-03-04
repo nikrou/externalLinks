@@ -1,44 +1,22 @@
 <?php
 /*
- * This file is part of Phyxo package
+ *  -- BEGIN LICENSE BLOCK ----------------------------------
  *
- * Copyright(c) Nicolas Roudaire  https://www.nikrou.net/
- * Licensed under the GPL version 2.0 license.
+ *  This file is part of externalLinks, a plugin for DotClear2.
  *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
+ *  Licensed under the GPL version 2.0 license.
+ *  See COPYING file or
+ *  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ *  -- END LICENSE BLOCK ------------------------------------
  */
 
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+dcCore::app()->blog->settings->addNamespace('externallinks');
 
-$_menu['Plugins']->addItem(
+dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
     __('External links'),
     'plugin.php?p=externalLinks',
     'index.php?pf=externalLinks/img/icon.png',
     preg_match('/plugin.php\?p=externalLinks(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('usage,contentadmin', $core->blog->id)
+    dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([dcAuth::PERMISSION_USAGE, dcAuth::PERMISSION_CONTENT_ADMIN]), dcCore::app()->blog->id)
 );
-
-$core->blog->settings->addNamespace('externallinks');
-if ($core->blog->settings->externallinks->active && $core->blog->settings->externallinks->all_links === false) {
-    $core->addBehavior('adminPostHeaders', ['externalLinksBehaviors', 'jsLoad']);
-    $core->addBehavior('adminPageHeaders', ['externalLinksBehaviors', 'jsLoad']);
-    $core->addBehavior('adminRelatedHeaders', ['externalLinksBehaviors', 'jsLoad']);
-    $core->addBehavior('adminDashboardHeaders', ['externalLinksBehaviors', 'jsLoad']);
-}
-
-class externalLinksBehaviors
-{
-    public static function jsLoad()
-    {
-        global $core;
-
-        $res = sprintf(
-            '<script type="text/javascript" src="%s"></script>',
-            html::stripHostURL($core->blog->getQmarkURL() . 'pf=externalLinks/js/post.js')
-        );
-        return $res;
-    }
-}

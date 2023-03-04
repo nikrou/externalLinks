@@ -1,28 +1,29 @@
 <?php
 /*
- * This file is part of Phyxo package
+ *  -- BEGIN LICENSE BLOCK ----------------------------------
  *
- * Copyright(c) Nicolas Roudaire  https://www.nikrou.net/
- * Licensed under the GPL version 2.0 license.
+ *  This file is part of externalLinks, a plugin for DotClear2.
  *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
+ *  Licensed under the GPL version 2.0 license.
+ *  See COPYING file or
+ *  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ *  -- END LICENSE BLOCK ------------------------------------
  */
 
-$version = $core->plugins->moduleInfo('externalLinks', 'version');
-if (version_compare($core->getVersion('externalLinks'), $version, '>=')) {
+$version = dcCore::app()->plugins->moduleInfo('externalLinks', 'version');
+if (version_compare(dcCore::app()->getVersion('externalLinks'), $version, '>=')) {
     return;
 }
 
-$settings = $core->blog->settings;
+$settings = dcCore::app()->blog->settings;
 $settings->addNamespace('externallinks');
 
 $settings->externallinks->put('active', false, 'boolean', 'external Links plugin activation', false);
 $settings->externallinks->put('all_links', false, 'boolean', 'Open all links in a new window', false);
-$settings->externallinks->put('checkbox_new_links', false, 'boolean', 'Default status for popup (external or not)', false);
 $settings->externallinks->put('one_link', false, 'boolean', 'Merge classic and external link?', false);
 $settings->externallinks->put('with_icon', true, 'boolean', 'Add icon for external link?', false);
 $settings->externallinks->put('new_icon', '', 'string', 'External links user icon', false);
 
-$core->setVersion('externalLinks', $version);
+dcCore::app()->setVersion('externalLinks', $version);
 return true;
